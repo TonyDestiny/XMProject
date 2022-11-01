@@ -4,6 +4,6 @@ import (
 	"github.com/sirupsen/logrus"
 )
 
-func newErrorResponse(message string) {
+func logError(message string) {
 	logrus.Error(message)
 }

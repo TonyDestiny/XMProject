@@ -36,5 +36,5 @@ func main() {
 
 	router := handle.InitRoutes()
 
-	log.Fatalln(http.ListenAndServe(":3333", router))
+	log.Fatalln(http.ListenAndServe(":8080", router))
 }

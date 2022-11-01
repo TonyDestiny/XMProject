@@ -4,8 +4,8 @@ COPY . /XMProject
 WORKDIR /XMProject
 RUN go mod download
 
-RUN go build -o /docker-gs-ping /XMProject/cmd
+RUN go build -o /XMProject/build/docker-gs-ping /XMProject/cmd
 
 EXPOSE 8080
 
-CMD [ "/docker-gs-ping" ]
+CMD [ "/XMProject/build/docker-gs-ping" ]

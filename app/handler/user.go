@@ -20,7 +20,7 @@ func (h *Handler) signUp(w http.ResponseWriter, r *http.Request) {
 
 	err := json.NewDecoder(r.Body).Decode(&u)
 	if err != nil {
-		newErrorResponse(fmt.Sprintf("error decode post body: %v", err))
+		logError(fmt.Sprintf("error decode post body: %v", err))
 	}
 
 	if u.Username == "" || u.Password == "" {
@@ -30,7 +30,7 @@ func (h *Handler) signUp(w http.ResponseWriter, r *http.Request) {
 
 	id, err := h.serviceUser.CreateUser(u)
 	if err != nil {
-		newErrorResponse(fmt.Sprintf("error create user: %v", err))
+		logError(fmt.Sprintf("error create user: %v", err))
 	} else {
 		logrus.Infof("Add user %s to DB with ID=%d", u.Name, id)
 
